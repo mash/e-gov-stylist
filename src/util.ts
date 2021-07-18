@@ -1,4 +1,4 @@
-export function replace(input :string, begin :string, end :string) :string {
+export function replace(input: string, begin: string, end: string): string {
   const replaces = [
     {
       from: /（/g,

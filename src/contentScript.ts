@@ -5,11 +5,12 @@ import { replace } from "./util"
 const parenClassName = "__egovstylist-paren"
 const mainId = "MainProvision"
 
-const sleep = (msec :number) => new Promise(resolve => setTimeout(resolve, msec));
+const sleep = (msec: number) =>
+  new Promise((resolve) => setTimeout(resolve, msec))
 
-async function element(id :string, timeout :number): Promise<HTMLElement> {
+async function element(id: string, timeout: number): Promise<HTMLElement> {
   const now = new Date()
-  while ((new Date()).getTime() - now.getTime() < timeout) {
+  while (new Date().getTime() - now.getTime() < timeout) {
     const el = document.getElementById(id)
     if (el) {
       return el
@@ -32,21 +33,25 @@ async function main(): Promise<void> {
     }
 
     // the sentences we're looking for are the end of the tree and don't include child div elements
-    if (div.innerHTML.indexOf("div") !== -1 ) {
+    if (div.innerHTML.indexOf("div") !== -1) {
       continue
     }
 
     // and anchors
-    if (div.innerHTML.indexOf("<a ") !== -1 ) {
+    if (div.innerHTML.indexOf("<a ") !== -1) {
       continue
     }
 
-    if (div.innerHTML.indexOf("（") !== -1 ) {
-      div.innerHTML = replace(div.innerHTML, `<span class="${parenClassName}">`, `</span>`)
+    if (div.innerHTML.indexOf("（") !== -1) {
+      div.innerHTML = replace(
+        div.innerHTML,
+        `<span class="${parenClassName}">`,
+        `</span>`
+      )
     }
   }
 }
 
-(async function () {
+;(async function () {
   await main()
 })()
