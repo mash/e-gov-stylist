@@ -1,0 +1,46 @@
+{
+  "manifest_version": 2,
+  "name": "e-gov stylist",
+  "version": "1.0",
+  "description": "A Chrome extension to customize elaws.e-gov.go.jp style",
+  "browser_action": {
+    "default_icon": {
+      "32": "images/icon@32.png",
+      "128": "images/icon@128.png"
+    },
+    "default_title": "what do I put here?"
+  },
+  "omnibox": {
+    "keyword": "elaws.e-gov.go.jp"
+  },
+  "permissions": [
+    "activeTab",
+    "contextMenus"
+  ],
+  "commands": {
+    "import-pdf": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+P",
+        "mac": "Command+Shift+P"
+      },
+      "description": "Import PDF into catonlap.com"
+    },
+    "_execute_page_action": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+P",
+        "mac": "Command+Shift+P"
+      }
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://elaws.e-gov.go.jp/document*"],
+      "css": ["style.css"],
+      "js": ["contentScript.js"]
+    }
+  ],
+  "icons": {
+    "32": "images/icon@32.png",
+    "128": "images/icon@128.png"
+  }
+}

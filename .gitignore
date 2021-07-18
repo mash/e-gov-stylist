@@ -1,0 +1,11 @@
+*.log
+*.pdf
+.DS_Store
+.eslintcache
+
+tmp/
+node_modules/
+cache/
+.nyc_output/
+
+dist/*.js
