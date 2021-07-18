@@ -32,12 +32,8 @@
     "watch:dev": "webpack --config webpack.config.development.cjs --watch",
     "test": "node --loader ts-node/esm test/test.ts",
     "clean": "rm dist/*.js",
-    "upgrade": "ncu --upgrade"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
+    "upgrade": "ncu --upgrade",
+    "pre-commit": "lint-staged"
   },
   "lint-staged": {
     "*.{js,ts}": [
