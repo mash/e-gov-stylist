@@ -45,8 +45,8 @@ async function main(): Promise<void> {
     if (div.innerHTML.indexOf("（") !== -1) {
       div.innerHTML = replace(
         div.innerHTML,
-        `<span class="${parenClassName}">`,
-        `</span>`
+        `<span class="${parenClassName}">（`,
+        `）</span>`
       )
     }
   }
