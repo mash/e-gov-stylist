@@ -6,7 +6,6 @@ const config = {
   mode: "development",
   context: path.join(__dirname, 'src'),
   entry: {
-    // test: "./test.ts",
     contentScript: "./contentScript.ts"
   },
   devtool: "inline-source-map",

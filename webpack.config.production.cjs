@@ -6,7 +6,6 @@ const config = {
   mode: "production",
   context: path.join(__dirname, 'src'),
   entry: {
-    background: "./background.ts",
     contentScript: "./contentScript.ts"
   },
   module: {
