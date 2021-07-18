@@ -1,5 +1,7 @@
 "use strict"
 
+import { replace } from "./util"
+
 const parenClassName = "__egovstylist-paren"
 const mainId = "MainProvision"
 
@@ -15,15 +17,6 @@ async function element(id :string, timeout :number): Promise<HTMLElement> {
     await sleep(100)
   }
   throw `${mainId} not found within ${timeout} ms`
-}
-
-// takes the longest match
-const re = /（(.+)）/g
-function replace(input :string) :string {
-  return input.replace(re, function (_, p1) {
-    const orig = p1
-    return `<span class=${parenClassName}1>（${orig}）</span>`
-  })
 }
 
 async function main(): Promise<void> {
@@ -49,7 +42,7 @@ async function main(): Promise<void> {
     }
 
     if (div.innerHTML.indexOf("（") !== -1 ) {
-      div.innerHTML = replace(div.innerHTML)
+      div.innerHTML = replace(div.innerHTML, `<span class="${parenClassName}">`, `</span>`)
     }
   }
 }

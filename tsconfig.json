@@ -21,7 +21,8 @@
       ]
     },
     "types": [
-      "chrome"
+      "chrome",
+      "node"
     ]
   },
   "exclude": [
